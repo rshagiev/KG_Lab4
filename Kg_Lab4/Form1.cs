@@ -208,6 +208,7 @@ namespace Kg_Lab4
                                 Gl.glNormal3f(v1.nx, v1.ny, v1.nz);
                                 Gl.glVertex3f(v1.x, v1.y, v1.z);
                             }
+                            this.pictureBox1.Image = global::Kg_Lab4.Properties.Resources._2;
                             break;
                         case 1:
                             for (int column = 0; column <= s_columns; ++column, x += dx)
@@ -221,6 +222,9 @@ namespace Kg_Lab4
                                 Gl.glNormal3f(v1.nx, v1.ny, v1.nz);
                                 Gl.glVertex3f(v1.x, v1.y, v1.z);
                             }
+                            this.pictureBox1.Image = global::Kg_Lab4.Properties.Resources._1;
+                            //A.Text = A.Text;
+                            //B.Text = B.Text;
                             break;
                         case 2:
                             for (int column = 0; column <= s_columns; ++column, x += dx)
@@ -234,6 +238,9 @@ namespace Kg_Lab4
                                 Gl.glNormal3f(v1.nx, v1.ny, v1.nz);
                                 Gl.glVertex3f(v1.x, v1.y, v1.z);
                             }
+                            this.pictureBox1.Image = global::Kg_Lab4.Properties.Resources._3;
+                            A.Text = "n/a";
+                            B.Text = "n/a";
                             break;
 
                     }
