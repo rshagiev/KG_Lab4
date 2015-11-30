@@ -28,6 +28,7 @@ namespace Kg_Lab4
 
         HyperPar pv1 = new HyperPar();
         EliPar pv2 = new EliPar();
+        CSincSurface pv3 = new CSincSurface();
 
         public Form1()
         {
@@ -193,34 +194,50 @@ namespace Kg_Lab4
                 {
                     Gl.glBegin(Gl.GL_TRIANGLE_STRIP);
                     float x = s_xMin;
-                    if (SurfacePick.SelectedIndex == 0)
+                    switch (SurfacePick.SelectedIndex)
                     {
-                        for (int column = 0; column <= s_columns; ++column, x += dx)
-                        {
-                            Vertex v0 = pv1.CalculateVertex(x, y + dy);
-                            Vertex v1 = pv1.CalculateVertex(x, y);
+                        case 0:
+                            for (int column = 0; column <= s_columns; ++column, x += dx)
+                            {
+                                Vertex v0 = pv1.CalculateVertex(x, y + dy);
+                                Vertex v1 = pv1.CalculateVertex(x, y);
 
-                            Gl.glNormal3f(v0.nx, v0.ny, v0.nz);
-                            Gl.glVertex3f(v0.x, v0.y, v0.z);
+                                Gl.glNormal3f(v0.nx, v0.ny, v0.nz);
+                                Gl.glVertex3f(v0.x, v0.y, v0.z);
 
-                            Gl.glNormal3f(v1.nx, v1.ny, v1.nz);
-                            Gl.glVertex3f(v1.x, v1.y, v1.z);
-                        }
+                                Gl.glNormal3f(v1.nx, v1.ny, v1.nz);
+                                Gl.glVertex3f(v1.x, v1.y, v1.z);
+                            }
+                            break;
+                        case 1:
+                            for (int column = 0; column <= s_columns; ++column, x += dx)
+                            {
+                                Vertex v0 = pv2.CalculateVertex(x, y + dy);
+                                Vertex v1 = pv2.CalculateVertex(x, y);
+
+                                Gl.glNormal3f(v0.nx, v0.ny, v0.nz);
+                                Gl.glVertex3f(v0.x, v0.y, v0.z);
+
+                                Gl.glNormal3f(v1.nx, v1.ny, v1.nz);
+                                Gl.glVertex3f(v1.x, v1.y, v1.z);
+                            }
+                            break;
+                        case 2:
+                            for (int column = 0; column <= s_columns; ++column, x += dx)
+                            {
+                                Vertex v0 = pv3.CalculateVertex(x, y + dy);
+                                Vertex v1 = pv3.CalculateVertex(x, y);
+
+                                Gl.glNormal3f(v0.nx, v0.ny, v0.nz);
+                                Gl.glVertex3f(v0.x, v0.y, v0.z);
+
+                                Gl.glNormal3f(v1.nx, v1.ny, v1.nz);
+                                Gl.glVertex3f(v1.x, v1.y, v1.z);
+                            }
+                            break;
+
                     }
-                    else
-                    {
-                        for (int column = 0; column <= s_columns; ++column, x += dx)
-                        {
-                            Vertex v0 = pv2.CalculateVertex(x, y + dy);
-                            Vertex v1 = pv2.CalculateVertex(x, y);
-
-                            Gl.glNormal3f(v0.nx, v0.ny, v0.nz);
-                            Gl.glVertex3f(v0.x, v0.y, v0.z);
-
-                            Gl.glNormal3f(v1.nx, v1.ny, v1.nz);
-                            Gl.glVertex3f(v1.x, v1.y, v1.z);
-                        }
-                    }
+                   
                     Gl.glEnd();
                 }
                 Gl.glEndList();
@@ -252,10 +269,15 @@ namespace Kg_Lab4
         {
             try {
                 int a = Convert.ToInt32(A.Text);
-                if (SurfacePick.SelectedIndex == 0)
-                    pv1.A = a;               
-                else
-                    pv2.A = a;
+                switch (SurfacePick.SelectedIndex)
+                {
+                    case 0:
+                        pv1.A = a;
+                        break;
+                    case 1:
+                        pv2.A = a;
+                        break;
+                }
                 if (a == 0)    
                     MessageBox.Show("Variable can't be 0!");
                 
@@ -271,10 +293,15 @@ namespace Kg_Lab4
             try
             {
                 int b = Convert.ToInt32(B.Text);
-                if (SurfacePick.SelectedIndex == 0)
-                    pv1.B = b;
-                else
-                    pv2.B = b;
+                switch (SurfacePick.SelectedIndex)
+                {
+                    case 0:
+                        pv1.B = b;
+                        break;
+                    case 1:
+                        pv2.B = b;
+                        break;
+                }
                 if (b == 0)
                     MessageBox.Show("Variable can't be 0!");
                 

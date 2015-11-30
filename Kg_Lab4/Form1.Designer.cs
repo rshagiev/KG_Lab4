@@ -197,7 +197,8 @@
             this.SurfacePick.FormattingEnabled = true;
             this.SurfacePick.Items.AddRange(new object[] {
             "Hyperboloid paraboloid",
-            "Elliptic paraboloid"});
+            "Elliptic paraboloid",
+            "Example"});
             this.SurfacePick.Location = new System.Drawing.Point(462, 66);
             this.SurfacePick.Name = "SurfacePick";
             this.SurfacePick.Size = new System.Drawing.Size(123, 21);
