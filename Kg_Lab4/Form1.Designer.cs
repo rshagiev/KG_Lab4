@@ -208,6 +208,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Image = global::Kg_Lab4.Properties.Resources._3;
             this.pictureBox1.Location = new System.Drawing.Point(456, 305);
             this.pictureBox1.Name = "pictureBox1";
